@@ -19,9 +19,9 @@ public class Main {
             em.getTransaction().begin();
 
             // 3 address
-            Address address1 = new Address("7", "Rue du test", "44000", "Nantes");
-            Address address2 = new Address("10", "Rue de l'EPSI", "44200", "Nantes");
-            Address address3 = new Address("127", "Rue des champs", "75000", "Paris");
+//            Address address1 = new Address("7", "Rue du test", "44000", "Nantes");
+//            Address address2 = new Address("10", "Rue de l'EPSI", "44200", "Nantes");
+//            Address address3 = new Address("127", "Rue des champs", "75000", "Paris");
             // Sauvegarde les adresses
 //            em.persist(address1);
 //            em.persist(address2);
@@ -41,34 +41,45 @@ public class Main {
             PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
             PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
             // Sauvegarde
-
+            em.persist(petStore1);
+            em.persist(petStore2);
+            em.persist(petStore3);
             // Ajout 3 chats
-//            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
-//            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
-//            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
+            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
+            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
+            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
 //
 //            em.persist(cat1);
 //            em.persist(cat2);
 //            em.persist(cat3);
 
             // Ajout 3 poissons
-//            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
-//            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
-//            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
+            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
+            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
+            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
 //
 //            em.persist(fish1);
 //            em.persist(fish2);
 //            em.persist(fish3);
 
             // Adress_id dans PetStore
-            petStore1.setAddress(address1);
-            petStore2.setAddress(address2);
-            petStore3.setAddress(address3);
+//            petStore1.setAddress(address1);
+//            petStore2.setAddress(address2);
+//            petStore3.setAddress(address3);
+
+            // petstore_id dans Animal
+            petStore1.addAnimal(cat1);
+            petStore1.addAnimal(fish1);
+
+            petStore2.addAnimal(cat2);
+            petStore2.addAnimal(fish2);
+
+            petStore3.addAnimal(cat3);
+            petStore3.addAnimal(fish3);
 
             em.persist(petStore1);
             em.persist(petStore2);
             em.persist(petStore3);
-
 
             // Exécute en base
             em.getTransaction().commit();
