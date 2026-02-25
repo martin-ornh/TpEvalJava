@@ -4,6 +4,7 @@ import fr.epsi.petstore.entity.*;
 import fr.epsi.petstore.entity.enums.*;
 import jakarta.persistence.*;
 
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Date;
 
@@ -37,26 +38,26 @@ public class Main {
 //            em.persist(product3);
 
             // 3 PetStore
-            PetStore petStore1 = new PetStore("MaxiZoo", "Martin ORNH");
-            PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
-            PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
+//            PetStore petStore1 = new PetStore("MaxiZoo", "Martin ORNH");
+//            PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
+//            PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
             // Sauvegarde
-            em.persist(petStore1);
-            em.persist(petStore2);
-            em.persist(petStore3);
+//            em.persist(petStore1);
+//            em.persist(petStore2);
+//            em.persist(petStore3);
             // Ajout 3 chats
-            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
-            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
-            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
+//            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
+//            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
+//            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
 //
 //            em.persist(cat1);
 //            em.persist(cat2);
 //            em.persist(cat3);
 
             // Ajout 3 poissons
-            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
-            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
-            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
+//            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
+//            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
+//            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
 //
 //            em.persist(fish1);
 //            em.persist(fish2);
@@ -68,18 +69,22 @@ public class Main {
 //            petStore3.setAddress(address3);
 
             // petstore_id dans Animal
-            petStore1.addAnimal(cat1);
-            petStore1.addAnimal(fish1);
+//            petStore1.addAnimal(cat1);
+//            petStore1.addAnimal(fish1);
+//
+//            petStore2.addAnimal(cat2);
+//            petStore2.addAnimal(fish2);
+//
+//            petStore3.addAnimal(cat3);
+//            petStore3.addAnimal(fish3);
 
-            petStore2.addAnimal(cat2);
-            petStore2.addAnimal(fish2);
 
-            petStore3.addAnimal(cat3);
-            petStore3.addAnimal(fish3);
-
-            em.persist(petStore1);
-            em.persist(petStore2);
-            em.persist(petStore3);
+            // Requête d'extraction d'animaux d'une animalerie
+            TypedQuery<Animal> query = em.createQuery("SELECT a FROM Animal a WHERE a.petStore.id = 7", Animal.class);
+            List<Animal> animals = query.getResultList();
+            for (Animal animal : animals) {
+                System.out.println(animal);
+            }
 
             // Exécute en base
             em.getTransaction().commit();
