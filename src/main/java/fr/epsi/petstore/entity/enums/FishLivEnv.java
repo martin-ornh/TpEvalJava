@@ -1,4 +1,4 @@
-package fr.epsi.petshop.entity.enums;
+package fr.epsi.petstore.entity.enums;
 
 public enum FishLivEnv {
     FRESH_WATER,
