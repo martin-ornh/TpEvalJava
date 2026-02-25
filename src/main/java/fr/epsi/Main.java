@@ -37,13 +37,21 @@ public class Main {
 //            em.persist(product3);
 
             // 3 PetStore
-            PetStore petStore1 = new PetStore("MaxiZoo", "Martin ORNH");
-            PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
-            PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
-            // Sauvegarde
-            em.persist(petStore1);
-            em.persist(petStore2);
-            em.persist(petStore3);
+//            PetStore petStore1 = new PetStore("MaxiZoo", "Martin ORNH");
+//            PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
+//            PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
+//            // Sauvegarde
+//            em.persist(petStore1);
+//            em.persist(petStore2);
+//            em.persist(petStore3);
+            // Ajout 3 chats
+            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
+            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
+            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
+
+            em.persist(cat1);
+            em.persist(cat2);
+            em.persist(cat3);
 
 
 
