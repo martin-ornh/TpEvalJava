@@ -54,13 +54,14 @@ public class Main {
 //            em.persist(cat3);
 
             // Ajout 3 poissons
-            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
-            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
-            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
+//            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
+//            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
+//            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
+//
+//            em.persist(fish1);
+//            em.persist(fish2);
+//            em.persist(fish3);
 
-            em.persist(fish1);
-            em.persist(fish2);
-            em.persist(fish3);
 
 
 

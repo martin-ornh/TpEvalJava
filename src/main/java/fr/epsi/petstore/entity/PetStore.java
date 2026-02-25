@@ -45,6 +45,30 @@ public class PetStore {
         this.managerName = managerName;
     }
 
+    // Ajoute un animal dans un petstore
+    public void addAnimal(Animal animal) {
+        animals.add(animal);
+        animal.setPetStore(this);
+    }
+
+    // Retire un animal d'un petstore
+    public void removeAnimal(Animal animal) {
+        animals.remove(animal);
+        animal.setPetStore(null);
+    }
+
+    // Ajoute un produit dans un petstore
+    public void addProduct(Product product) {
+        products.add(product);
+        product.getPetStores().add(this);
+    }
+
+    // Retire un produit d'un petstore
+    public void removeProduct(Product product) {
+        products.remove(product);
+        product.getPetStores().remove(this);
+    }
+
     // Gatters & setters
     public Long getId() { return id; }
 
