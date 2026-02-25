@@ -19,10 +19,10 @@ public class Main {
             em.getTransaction().begin();
 
             // 3 address
-//            Address address1 = new Address("7", "Rue du test", "44000", "Nantes");
-//            Address address2 = new Address("10", "Rue de l'EPSI", "44200", "Nantes");
-//            Address address3 = new Address("127", "Rue des champs", "75000", "Paris");
-//            // Sauvegarde les adresses
+            Address address1 = new Address("7", "Rue du test", "44000", "Nantes");
+            Address address2 = new Address("10", "Rue de l'EPSI", "44200", "Nantes");
+            Address address3 = new Address("127", "Rue des champs", "75000", "Paris");
+            // Sauvegarde les adresses
 //            em.persist(address1);
 //            em.persist(address2);
 //            em.persist(address3);
@@ -37,13 +37,11 @@ public class Main {
 //            em.persist(product3);
 
             // 3 PetStore
-//            PetStore petStore1 = new PetStore("MaxiZoo", "Martin ORNH");
-//            PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
-//            PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
-//            // Sauvegarde
-//            em.persist(petStore1);
-//            em.persist(petStore2);
-//            em.persist(petStore3);
+            PetStore petStore1 = new PetStore("MaxiZoo", "Martin ORNH");
+            PetStore petStore2 = new PetStore("Animalerie", "Séga SYLLA");
+            PetStore petStore3 = new PetStore("SPA", "Thomas TARTRAU");
+            // Sauvegarde
+
             // Ajout 3 chats
 //            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
 //            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
@@ -62,8 +60,14 @@ public class Main {
 //            em.persist(fish2);
 //            em.persist(fish3);
 
+            // Adress_id dans PetStore
+            petStore1.setAddress(address1);
+            petStore2.setAddress(address2);
+            petStore3.setAddress(address3);
 
-
+            em.persist(petStore1);
+            em.persist(petStore2);
+            em.persist(petStore3);
 
 
             // Exécute en base
