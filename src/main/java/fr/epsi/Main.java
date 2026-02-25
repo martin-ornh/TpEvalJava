@@ -18,14 +18,26 @@ public class Main {
             // insert en base via EM
             em.getTransaction().begin();
 
+            // 3 address
             Address address1 = new Address("7", "Rue du test", "44000", "Nantes");
             Address address2 = new Address("10", "Rue de l'EPSI", "44200", "Nantes");
             Address address3 = new Address("127", "Rue des champs", "75000", "Paris");
-
+            // Sauvegarde les adresses
             em.persist(address1);
             em.persist(address2);
             em.persist(address3);
 
+            // 3 produits
+            Product product1 = new Product("CODE1", "Laisse pour chat", ProdType.ACCESSORY, 40);
+            Product product2 = new Product("CODE2", "Pâté pour chat", ProdType.FOOD, 10);
+            Product product3 = new Product("CODE3", "Brosse à poil", ProdType.ACCESSORY, 19.99);
+            // Sauvegarde
+            em.persist(product1);
+            em.persist(product2);
+            em.persist(product3);
+
+
+            // Exécute en base
             em.getTransaction().commit();
         } catch (Exception e) {
             throw new RuntimeException(e);
