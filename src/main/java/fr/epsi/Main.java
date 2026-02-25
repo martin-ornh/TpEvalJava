@@ -45,13 +45,23 @@ public class Main {
 //            em.persist(petStore2);
 //            em.persist(petStore3);
             // Ajout 3 chats
-            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
-            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
-            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
+//            Cat cat1 = new Cat(new Date(), "Roux", "CHAT1");
+//            Cat cat2 = new Cat(new Date(), "Bleu", "CHAT2");
+//            Cat cat3 = new Cat(new Date(), "Rouge", "CHAT3");
+//
+//            em.persist(cat1);
+//            em.persist(cat2);
+//            em.persist(cat3);
 
-            em.persist(cat1);
-            em.persist(cat2);
-            em.persist(cat3);
+            // Ajout 3 poissons
+            Fish fish1 = new Fish(new Date(), "Rouge", FishLivEnv.FRESH_WATER);
+            Fish fish2 = new Fish(new Date(), "Gris", FishLivEnv.SEA_WATER);
+            Fish fish3 = new Fish(new Date(), "Bleu", FishLivEnv.FRESH_WATER);
+
+            em.persist(fish1);
+            em.persist(fish2);
+            em.persist(fish3);
+
 
 
 
