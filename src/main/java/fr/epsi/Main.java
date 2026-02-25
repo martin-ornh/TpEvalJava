@@ -1,17 +1,34 @@
 package fr.epsi;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import fr.epsi.petstore.entity.*;
+import fr.epsi.petstore.entity.enums.*;
+import jakarta.persistence.*;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+import java.util.List;
+import java.util.Date;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("petstore-pu");
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            // insert en base via EM
+            em.getTransaction().begin();
+
+            Address address1 = new Address("7", "Rue du test", "44000", "Nantes");
+            Address address2 = new Address("10", "Rue de l'EPSI", "44200", "Nantes");
+            Address address3 = new Address("127", "Rue des champs", "75000", "Paris");
+
+            em.persist(address1);
+            em.persist(address2);
+            em.persist(address3);
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
